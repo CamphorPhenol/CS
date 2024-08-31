@@ -7,13 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             margin: 0;
             padding: 0;
             background-color: rgb(153, 149, 125);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .logo {
             position: absolute;
@@ -25,11 +25,11 @@
         }
         .container {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping for smaller screens */
-            width: 100%;
-            max-width: 1800px; /* Max width for larger screens */
-            margin: 20px;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
             gap: 20px; /* Space between items */
+            width: 100%;
+            max-width: 1800px; /* Max width for large screens */
+            margin: 20px;
         }
         .radar, .combined-map {
             border: 2px solid #333; /* Added border */
@@ -37,18 +37,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
             background-color: rgb(255, 255, 255);
             overflow: hidden; /* Ensure content doesn't overflow */
-            flex: 1 1 48%; /* Allow items to grow and shrink */
+            flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
         }
         .radar {
             height: 700px; /* Fixed height */
-            position: relative;
-            background-color: rgb(31, 31, 31);
         }
         .radar img {
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             object-fit: cover; /* Cover container without distortion */
-            border: none;
         }
         .combined-map {
             height: 700px; /* Fixed height */
@@ -78,26 +75,10 @@
             text-decoration: underline;
         }
 
-        /* Media query for tablets and larger screens */
-        @media (min-width: 768px) {
-            .logo {
-                width: 12vw; /* Slightly smaller logo on tablets */
-                max-width: 200px;
-            }
-            .container {
-                flex-direction: row; /* Side by side on tablets and larger */
-            }
-            .radar, .combined-map {
-                flex: 1 1 48%; /* Adjust width */
-                margin: 0; /* Remove margin between items on larger screens */
-            }
-        }
-
         /* Media query for mobile screens */
         @media (max-width: 767px) {
             .container {
                 flex-direction: column; /* Stack vertically on mobile */
-                gap: 10px; /* Reduced gap */
             }
             .radar, .combined-map {
                 width: 100%; /* Full width on mobile */
@@ -106,10 +87,6 @@
             }
             .combined-map {
                 height: 500px; /* Adjust height for mobile */
-            }
-            .radar img, .combined-map iframe {
-                width: 100%; /* Full width */
-                height: auto; /* Maintain aspect ratio */
             }
         }
     </style>
@@ -138,4 +115,3 @@
     </div>
 </body>
 </html>
-
