@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Radar and Power Outages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(153, 149, 125);
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 20vw; /* Scale width relative to viewport width */
+            max-width: 250px; /* Ensure logo doesn’t get too large */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .container {
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            width: 100%;
+            max-width: 1800px; /* Adjusted for more space */
+            margin: 20px;
+            gap: 20px; /* Space between items */
+        }
+        .radar, .combined-map {
+            border: 2px solid #333; /* Added border */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+            background-color: rgb(255, 255, 255);
+            display: flex; /* Use flex for centering content */
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+        .radar {
+            flex: 1 1 50%; /* Adjust width to take more space */
+            position: relative;
+            height: 700px; /* Height for visibility */
+            background-color: rgb(31, 31, 31);
+            padding: 0; /* Ensure no padding affects layout */
+        }
+        .radar img {
+            width: 100%; /* Adjust image width to cover the container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Ensure image covers the container without distortion */
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .combined-map {
+            flex: 1 1 50%; /* Take up the remaining space */
+            height: 700px; /* Match height of radar */
+        }
+        .combined-map iframe {
+            width: 100%;
+            height: 100%; /* Match the height */
+            border: none;
+        }
+        h1 {
+            color: black;
+            margin: 20px 0;
+        }
+        .source-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1800px; /* Match container width */
+            width: 100%;
+            margin: 20px;
+            font-size: 14px;
+        }
+        .source-links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .source-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media query to handle smaller screens */
+        @media (max-width: 1200px) {
+            .container {
+                gap: 10px; /* Reduce space between items */
+            }
+            .radar, .combined-map {
+                flex: 1; /* Ensure they scale equally */
+            }
+        }
+        
+        /* Media query for mobile screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack sections vertically */
+                gap: 10px; /* Reduce space between items */
+            }
+            .radar, .combined-map {
+                width: 100%; /* Full width for mobile */
+                height: auto; /* Adjust height based on content */
+                margin-right: 0; /* Remove right margin */
+            }
+            .combined-map {
+                height: 500px; /* Adjust height for mobile */
+            }
+            .radar img, .combined-map iframe {
+                width: 100%;
+                height: auto; /* Maintain aspect ratio */
+            }
+        }
+    </style>
+    <script>
+        function refreshRadar() {
+            var radar1 = document.getElementById('radar1');
+            radar1.src = radar1.src.split('?')[0] + '?' + new Date().getTime(); // Add a timestamp to the URL to force refresh
+        }
+        setInterval(refreshRadar, 300000); // Refresh every 5 minutes (300,000 milliseconds)
+    </script>
+</head>
+<body>
+    <img src="logo no shadow.png" alt="Logo" class="logo"> <!-- Logo file in root directory -->
+    <h1>Weather Radar and Power Outages</h1>
+    <div class="container">
+        <div class="radar">
+            <img id="radar1" src="https://urldefense.com/v3/__https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/animate.png__;!!L3YRgMg!a5vcph_j0_u2yKnRdywkRAzBSA8PCtqhEtSyQ2ZcBtqX56qtZNY1O7n4sCDQ8xWJzZyfhB8lSUZcfE68dJo$"alt="Weather Radar">
+        </div>
+        <div class="combined-map">
+            <iframe src="https://outagemap.ameren.com/" title="Power Outages Map"></iframe>
+        </div>
+    </div>
+    <div class="source-links">
+        <a href="https://urldefense.com/v3/__https://www.wunderground.com/radar/us__;!!L3YRgMg!YsUQ3jnJHu2JjC54-X7R5NNoa2gshGtr-IkK91S6kDvKT50V0YIn7ZuHUuNcp0HGpQtYBVXBtZ9zuXzhqHI$"target="_blank">Weather Radar Source</a>
+        <a href="https://outagemap.ameren.com" target="_blank">Power Outages Map Source</a>
+    </div>
+</body>
+</html>
+
