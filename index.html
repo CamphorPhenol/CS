@@ -37,22 +37,20 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
             background-color: rgb(255, 255, 255);
             overflow: hidden; /* Ensure content doesn't overflow */
-            flex: 1 1 auto; /* Allow items to grow and shrink */
+            flex: 1 1 48%; /* Allow items to grow and shrink */
         }
         .radar {
-            flex: 1 1 50%; /* Adjust width */
             height: 700px; /* Fixed height */
             position: relative;
             background-color: rgb(31, 31, 31);
         }
         .radar img {
             width: 100%; /* Full width */
-            height: auto; /* Maintain aspect ratio */
+            height: 100%; /* Full height */
             object-fit: cover; /* Cover container without distortion */
             border: none;
         }
         .combined-map {
-            flex: 1 1 50%; /* Adjust width */
             height: 700px; /* Fixed height */
         }
         .combined-map iframe {
@@ -90,6 +88,7 @@
                 flex-direction: row; /* Side by side on tablets and larger */
             }
             .radar, .combined-map {
+                flex: 1 1 48%; /* Adjust width */
                 margin: 0; /* Remove margin between items on larger screens */
             }
         }
