@@ -30,7 +30,6 @@
             width: 100%;
             max-width: 1800px; /* Max width for large screens */
             margin: 20px;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
         }
         .radar, .combined-map {
             border: 2px solid #333; /* Added border */
@@ -39,19 +38,14 @@
             background-color: rgb(255, 255, 255);
             overflow: hidden; /* Ensure content doesn't overflow */
             flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
-            display: flex; /* Align children properly */
-            align-items: center;
-            justify-content: center;
         }
         .radar {
             height: 700px; /* Fixed height */
-            position: relative;
         }
         .radar img {
-            max-width: 100%; /* Full width, maintain aspect ratio */
-            max-height: 100%; /* Full height, maintain aspect ratio */
-            object-fit: contain; /* Scale image to fit within container */
-            border: none;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: cover; /* Cover container without distortion */
         }
         .combined-map {
             height: 700px; /* Fixed height */
