@@ -22,6 +22,11 @@
             width: 15vw; /* Responsive width */
             max-width: 200px; /* Ensure logo doesn’t get too large */
             height: auto; /* Maintain aspect ratio */
+            z-index: 1; /* Ensure logo stays on top */
+        }
+        .header {
+            margin-top: 60px; /* Space for logo */
+            text-align: center;
         }
         .container {
             display: flex;
@@ -95,6 +100,14 @@
             .combined-map {
                 height: 500px; /* Adjust height for mobile */
             }
+            .logo {
+                width: 25vw; /* Larger responsive width on mobile */
+                max-width: 150px; /* Ensure logo doesn’t get too large on mobile */
+                top: 10px; /* Adjust top margin for mobile */
+            }
+            .header {
+                margin-top: 80px; /* Space for logo on mobile */
+            }
         }
     </style>
     <script>
@@ -107,7 +120,9 @@
 </head>
 <body>
     <img src="logo no shadow.png" alt="Logo" class="logo"> <!-- Logo file in root directory -->
-    <h1>Weather Radar and Power Outages</h1>
+    <div class="header">
+        <h1>Weather Radar and Power Outages</h1>
+    </div>
     <div class="container">
         <div class="radar">
             <img id="radar1" src="https://urldefense.com/v3/__https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/animate.png__;!!L3YRgMg!a5vcph_j0_u2yKnRdywkRAzBSA8PCtqhEtSyQ2ZcBtqX56qtZNY1O7n4sCDQ8xWJzZyfhB8lSUZcfE68dJo$"alt="Weather Radar">
