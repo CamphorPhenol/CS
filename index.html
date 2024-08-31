@@ -19,51 +19,45 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 20vw; /* Scale width relative to viewport width */
-            max-width: 250px; /* Ensure logo doesn’t get too large */
+            width: 15vw; /* Responsive width */
+            max-width: 200px; /* Ensure logo doesn’t get too large */
             height: auto; /* Maintain aspect ratio */
         }
         .container {
             display: flex;
-            flex-wrap: nowrap; /* Prevent wrapping */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
             width: 100%;
-            max-width: 1800px; /* Adjusted for more space */
+            max-width: 1800px; /* Max width for larger screens */
             margin: 20px;
             gap: 20px; /* Space between items */
         }
         .radar, .combined-map {
             border: 2px solid #333; /* Added border */
-            border-radius: 8px; /* Optional: rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
             background-color: rgb(255, 255, 255);
-            display: flex; /* Use flex for centering content */
-            align-items: center; /* Center content vertically */
-            justify-content: center; /* Center content horizontally */
             overflow: hidden; /* Ensure content doesn't overflow */
         }
         .radar {
-            flex: 1 1 50%; /* Adjust width to take more space */
+            flex: 1 1 50%; /* Adjust width */
+            height: 700px; /* Fixed height */
             position: relative;
-            height: 700px; /* Height for visibility */
             background-color: rgb(31, 31, 31);
             padding: 0; /* Ensure no padding affects layout */
         }
         .radar img {
-            width: 100%; /* Adjust image width to cover the container */
+            width: 100%; /* Full width */
             height: auto; /* Maintain aspect ratio */
-            object-fit: cover; /* Ensure image covers the container without distortion */
+            object-fit: cover; /* Cover container without distortion */
             border: none;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
         .combined-map {
-            flex: 1 1 50%; /* Take up the remaining space */
-            height: 700px; /* Match height of radar */
+            flex: 1 1 50%; /* Adjust width */
+            height: 700px; /* Fixed height */
         }
         .combined-map iframe {
             width: 100%;
-            height: 100%; /* Match the height */
+            height: 100%; /* Full height */
             border: none;
         }
         h1 {
@@ -73,7 +67,7 @@
         .source-links {
             display: flex;
             justify-content: space-between;
-            max-width: 1800px; /* Match container width */
+            max-width: 1800px; /* Max width */
             width: 100%;
             margin: 20px;
             font-size: 14px;
@@ -86,32 +80,36 @@
             text-decoration: underline;
         }
 
-        /* Media query to handle smaller screens */
-        @media (max-width: 1200px) {
+        /* Media query to handle tablets and larger screens */
+        @media (min-width: 768px) {
+            .logo {
+                width: 12vw; /* Slightly smaller logo on tablets */
+                max-width: 200px;
+            }
             .container {
-                gap: 10px; /* Reduce space between items */
+                flex-direction: row; /* Side by side on tablets and larger */
             }
             .radar, .combined-map {
-                flex: 1; /* Ensure they scale equally */
+                margin: 0; /* Remove margin between items on larger screens */
             }
         }
-        
+
         /* Media query for mobile screens */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Stack sections vertically */
-                gap: 10px; /* Reduce space between items */
+                flex-direction: column; /* Stack vertically on mobile */
+                gap: 10px; /* Reduced gap */
             }
             .radar, .combined-map {
-                width: 100%; /* Full width for mobile */
+                width: 100%; /* Full width on mobile */
                 height: auto; /* Adjust height based on content */
-                margin-right: 0; /* Remove right margin */
+                margin: 0; /* Remove margin */
             }
             .combined-map {
                 height: 500px; /* Adjust height for mobile */
             }
             .radar img, .combined-map iframe {
-                width: 100%;
+                width: 100%; /* Full width */
                 height: auto; /* Maintain aspect ratio */
             }
         }
