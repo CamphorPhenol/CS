@@ -46,19 +46,18 @@
         }
         .radar {
             flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
-            height: 700px; /* Fixed height */
-		background-color: rgb(31, 31, 31);
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio for responsiveness */
+            background-color: rgb(31, 31, 31);
         }
         .radar img {
             width: 100%; /* Adjust image width to cover the container */
-            height: auto; /* Maintain aspect ratio */
+            height: 100%; /* Adjust image height to cover the container */
             object-fit: cover; /* Cover container without distortion */
             border: none;
-		
         }
         .combined-map {
             flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
-            height: 700px; /* Fixed height */
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio for responsiveness */
         }
         .combined-map iframe {
             width: 100%;
@@ -82,7 +81,7 @@
         .source-links a:hover {
             text-decoration: underline;
         }
-
+ 
         /* Media query for smaller screens */
         @media (max-width: 1200px) {
             .container {
@@ -92,7 +91,7 @@
                 flex: 1; /* Ensure they scale equally */
             }
         }
-       
+      
         /* Media query for mobile screens */
         @media (max-width: 768px) {
             .logo {
@@ -129,15 +128,16 @@
     <h1>Weather Radar and Power Outages</h1>
     <div class="container">
         <div class="radar">
-            <img id="radar1" src="https://urldefense.com/v3/__https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/animate.png__;!!L3YRgMg!a5vcph_j0_u2yKnRdywkRAzBSA8PCtqhEtSyQ2ZcBtqX56qtZNY1O7n4sCDQ8xWJzZyfhB8lSUZcfE68dJo$"alt="Weather Radar">
+            <img id="radar1" src="https://urldefense.com/v3/__https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/animate.png__;!!L3YRgMg!a5vcph_j0_u2yKnRdywkRAzBSA8PCtqhEtSyQ2ZcBtqX56qtZNY1O7n4sCDQ8xWJzZyfhB8lSUZcfE68dJo$"alt="WeatherRadar">
         </div>
         <div class="combined-map">
             <iframe src="https://outagemap.ameren.com/" title="Power Outages Map"></iframe>
         </div>
     </div>
     <div class="source-links">
-        <a href="https://urldefense.com/v3/__https://www.wunderground.com/radar/us__;!!L3YRgMg!YsUQ3jnJHu2JjC54-X7R5NNoa2gshGtr-IkK91S6kDvKT50V0YIn7ZuHUuNcp0HGpQtYBVXBtZ9zuXzhqHI$"target="_blank">Weather Radar Source</a>
+        <a href="https://urldefense.com/v3/__https://www.wunderground.com/radar/us__;!!L3YRgMg!YsUQ3jnJHu2JjC54-X7R5NNoa2gshGtr-IkK91S6kDvKT50V0YIn7ZuHUuNcp0HGpQtYBVXBtZ9zuXzhqHI$"target="_blank">WeatherRadar Source</a>
         <a href="https://outagemap.ameren.com" target="_blank">Power Outages Map Source</a>
     </div>
 </body>
 </html>
+
