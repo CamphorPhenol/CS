@@ -57,11 +57,17 @@
         .combined-map {
             flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
             height: 700px; /* Fixed height */
+            background-color: rgb(31, 31, 31); /* Background color for the container */
+            position: relative; /* Position relative to control iframe positioning */
         }
         .combined-map iframe {
             width: 100%;
-            height: 100%; /* Full height */
+            height: 100%; /* Match the height */
             border: none;
+            background-color: rgb(31, 31, 31); /* Background color for the iframe */
+            position: absolute; /* Position absolutely to cover container */
+            top: 0;
+            left: 0;
         }
         .source-links {
             display: flex;
