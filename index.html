@@ -14,12 +14,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center; /* Center text inside containers */
+        }
+        .header {
+            margin: 20px;
         }
         .logo {
             width: 15vw; /* Responsive width */
             max-width: 200px; /* Ensure logo doesn’t get too large */
             height: auto; /* Maintain aspect ratio */
-            margin-bottom: 20px; /* Space between logo and title */
         }
         h1 {
             color: black;
@@ -97,8 +100,10 @@
     </script>
 </head>
 <body>
-    <img src="logo no shadow.png" alt="Logo" class="logo"> <!-- Logo file in root directory -->
-    <h1>Weather Radar and Power Outages</h1>
+    <div class="header">
+        <img src="logo no shadow.png" alt="Logo" class="logo"> <!-- Logo file in root directory -->
+        <h1>Weather Radar and Power Outages</h1>
+    </div>
     <div class="container">
         <div class="radar">
             <img id="radar1" src="https://urldefense.com/v3/__https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/animate.png__;!!L3YRgMg!a5vcph_j0_u2yKnRdywkRAzBSA8PCtqhEtSyQ2ZcBtqX56qtZNY1O7n4sCDQ8xWJzZyfhB8lSUZcfE68dJo$"alt="Weather Radar">
