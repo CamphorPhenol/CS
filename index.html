@@ -14,27 +14,30 @@
             margin: 0;
             padding: 0;
             background-color: rgb(153, 149, 125);
+            text-align: center; /* Center text and image */
         }
         .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 20vw; /* Scale width relative to viewport width */
-            max-width: 250px; /* Ensure logo doesn’t get too large */
+            width: 30vw; /* Responsive width */
+            max-width: 400px; /* Adjust for large screens */
             height: auto; /* Maintain aspect ratio */
+            margin: 10px 0; /* Reduced gap between logo and title */
+        }
+        h1 {
+            color: black;
+            margin: 5px 0; /* Reduced gap between title and content */
         }
         .container {
             display: flex;
-            flex-wrap: nowrap; /* Prevent wrapping */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
             width: 100%;
-            max-width: 1800px; /* Adjusted for more space */
-            margin: 20px;
-            gap: 20px; /* Space between items */
+            max-width: 1800px; /* Max width for larger screens */
+            margin: 10px; /* Reduced margin around the container */
+            gap: 10px; /* Reduced gap between items */
         }
         .radar, .combined-map {
             border: 2px solid #333; /* Added border */
-            border-radius: 8px; /* Optional: rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
             background-color: rgb(255, 255, 255);
             display: flex; /* Use flex for centering content */
             align-items: center; /* Center content vertically */
@@ -42,41 +45,33 @@
             overflow: hidden; /* Ensure content doesn't overflow */
         }
         .radar {
-            flex: 1 1 50%; /* Adjust width to take more space */
-            position: relative;
-            height: 700px; /* Height for visibility */
-            background-color: rgb(31, 31, 31);
-            padding: 0; /* Ensure no padding affects layout */
+            flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
+            height: 700px; /* Fixed height */
         }
         .radar img {
             width: 100%; /* Adjust image width to cover the container */
             height: auto; /* Maintain aspect ratio */
-            object-fit: cover; /* Ensure image covers the container without distortion */
+            object-fit: cover; /* Cover container without distortion */
             border: none;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
         .combined-map {
-            flex: 1 1 50%; /* Take up the remaining space */
-            height: 700px; /* Match height of radar */
+            flex: 1 1 48%; /* Flex-grow and flex-shrink with base width */
+            height: 700px; /* Fixed height */
         }
         .combined-map iframe {
             width: 100%;
-            height: 100%; /* Match the height */
+            height: 100%; /* Full height */
             border: none;
-        }
-        h1 {
-            color: black;
-            margin: 20px 0;
         }
         .source-links {
             display: flex;
-            justify-content: space-between;
-            max-width: 1800px; /* Match container width */
+            justify-content: center; /* Center links on mobile */
+            flex-wrap: wrap; /* Wrap links on smaller screens */
+            max-width: 1800px; /* Max width */
             width: 100%;
-            margin: 20px;
+            margin: 10px 0; /* Reduced margin below the container */
             font-size: 14px;
+            gap: 10px; /* Space between links */
         }
         .source-links a {
             color: #007bff;
@@ -86,33 +81,36 @@
             text-decoration: underline;
         }
 
-        /* Media query to handle smaller screens */
+        /* Media query for smaller screens */
         @media (max-width: 1200px) {
             .container {
-                gap: 10px; /* Reduce space between items */
+                gap: 10px; /* Reduce gap between items */
             }
             .radar, .combined-map {
                 flex: 1; /* Ensure they scale equally */
             }
         }
-        
+       
         /* Media query for mobile screens */
         @media (max-width: 768px) {
+            .logo {
+                width: 50vw; /* Increase logo size on mobile */
+                max-width: 300px; /* Adjust max-width for mobile */
+            }
             .container {
                 flex-direction: column; /* Stack sections vertically */
                 gap: 10px; /* Reduce space between items */
             }
             .radar, .combined-map {
-                width: 100%; /* Full width for mobile */
+                width: 100%; /* Full width on mobile */
                 height: auto; /* Adjust height based on content */
-                margin-right: 0; /* Remove right margin */
             }
             .combined-map {
                 height: 500px; /* Adjust height for mobile */
             }
-            .radar img, .combined-map iframe {
-                width: 100%;
-                height: auto; /* Maintain aspect ratio */
+            .source-links {
+                flex-direction: column; /* Stack links vertically on mobile */
+                align-items: center; /* Center links */
             }
         }
     </style>
@@ -125,7 +123,7 @@
     </script>
 </head>
 <body>
-    <img src="logo no shadow.png" alt="Logo" class="logo"> <!-- Logo file in root directory -->
+    <img src="logo no shadow.png" alt="Logo" class="logo"> <!-- Replace 'path/to/logo.png' with your logo image path -->
     <h1>Weather Radar and Power Outages</h1>
     <div class="container">
         <div class="radar">
